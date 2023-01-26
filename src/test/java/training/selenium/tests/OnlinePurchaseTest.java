@@ -63,6 +63,7 @@ public class OnlinePurchaseTest {
         checkoutCompletePage.validateMessage("THANK YOU FOR YOUR ORDER");
     }
 
+
     @Test
     public void buyAnother2Products() {
         //1- login
