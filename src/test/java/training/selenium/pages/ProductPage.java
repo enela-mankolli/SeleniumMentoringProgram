@@ -9,6 +9,8 @@ import org.testng.Assert;
 import training.selenium.utils.DriverFactory;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductPage extends BasePage {
 
@@ -43,5 +45,14 @@ public class ProductPage extends BasePage {
         shoppingCardBadge.click();
     }
 
+    public List<String> getProductsName() {
+        List<String> list = new ArrayList<>();
+        By by = By.xpath("//div[@class='inventory_list']/div/div[@class='inventory_item_description']/div[@class='inventory_item_label']/a/div");
+        List<WebElement> elements = DriverFactory.getDriver().findElements(by);
 
+        for (WebElement el : elements) {
+            list.add(el.getText());
+        }
+        return list;
+    }
 }

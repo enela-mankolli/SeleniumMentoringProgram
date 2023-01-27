@@ -1,6 +1,5 @@
 package training.selenium.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -13,7 +12,8 @@ public class CheckoutStepTwoPage extends BasePage{
     @FindBy(id = "finish")
     WebElement finishButtonWebElement;
 
-    public void clickFinishButton() {
+    public void clickFinishButton()
+    {
         finishButtonWebElement.click();
     }
 
@@ -22,4 +22,5 @@ public class CheckoutStepTwoPage extends BasePage{
         String actualPrice = totalPriceWebElement.getText().replace("\\s", "");
         Assert.assertEquals(actualPrice, "Total: $" +price);
     }
+
 }

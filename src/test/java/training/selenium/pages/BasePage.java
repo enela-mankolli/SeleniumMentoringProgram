@@ -11,10 +11,12 @@ import java.time.Duration;
 public class BasePage {
 
     public BasePage() {
+
         PageFactory.initElements(DriverFactory.getDriver(), this);
     }
 
     public void validateURL(String expectedUrl) {
+
         WebDriverWait explicitWait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
         explicitWait.until(ExpectedConditions.urlToBe(expectedUrl));
         String actualUrl = DriverFactory.getDriver().getCurrentUrl();

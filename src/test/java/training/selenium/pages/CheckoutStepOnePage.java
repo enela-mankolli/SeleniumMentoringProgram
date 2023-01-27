@@ -13,7 +13,6 @@ public class CheckoutStepOnePage extends BasePage {
 
     @FindBy(id = "first-name")
     WebElement firstNameWebElement;
-
     @FindBy(id = "last-name")
     WebElement lastNameWebElement;
 
@@ -28,11 +27,11 @@ public class CheckoutStepOnePage extends BasePage {
         jse.executeScript("document.getElementById('last-name').setAttribute('value', '" + lastName + "')");
         jse.executeScript("document.getElementById('postal-code').setAttribute('value', '" + postalCode + "')");
 
-//        firstNameWebElement.clear();
-//        firstNameWebElement.sendKeys(firstName);
-//        lastNameWebElement.clear();
-//        lastNameWebElement.sendKeys(lastName);
-//        postalCodeWebElement.sendKeys(postalCode);
+      // firstNameWebElement.clear();
+     //  firstNameWebElement.sendKeys(firstName);
+  //    lastNameWebElement.clear();
+ //    lastNameWebElement.sendKeys(lastName);
+ //    postalCodeWebElement.sendKeys(postalCode);
     }
 
     public void clickContinueButton() {

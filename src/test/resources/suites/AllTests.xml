@@ -18,6 +18,7 @@
                     <include name="buy2Products" />
                 </methods>
             </class>
+            <class name="training.selenium.tests.ProductsTests" />
         </classes>
     </test>
 </suite>
