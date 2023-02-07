@@ -1,5 +1,4 @@
 package training.selenium.pages;
-
 import junit.framework.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import training.selenium.utils.DriverFactory;
-
 import java.time.Duration;
 
 public class LoginPage extends BasePage {
