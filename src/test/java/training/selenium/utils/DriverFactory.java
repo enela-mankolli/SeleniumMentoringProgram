@@ -1,17 +1,14 @@
 package training.selenium.utils;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-
-import java.sql.Driver;
 import java.time.Duration;
 
 public class DriverFactory {
 
-    private static WebDriver driver = initDriver("edge");
+    private static WebDriver driver = initDriver("chrome");
 
     public static WebDriver getDriver() {
         return driver;

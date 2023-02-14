@@ -14,5 +14,6 @@ public class CheckoutCompletePage extends BasePage {
     public void validateMessage(String message) {
         Assert.assertEquals(checkoutCompleteTitleElement.getText(), message);
 
+
     }
 }

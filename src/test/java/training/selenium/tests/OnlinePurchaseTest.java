@@ -59,6 +59,7 @@ public class OnlinePurchaseTest {
         //7- CHECKOUT: COMPLETE!
         checkoutCompletePage.validateURL("https://www.saucedemo.com/checkout-complete.html");
         checkoutCompletePage.validateMessage("THANK YOU FOR YOUR ORDER");
+
     }
 
 

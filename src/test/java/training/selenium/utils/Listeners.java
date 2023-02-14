@@ -1,9 +1,7 @@
 package training.selenium.utils;
-
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 import java.io.IOException;
 
 public class Listeners implements ITestListener {
