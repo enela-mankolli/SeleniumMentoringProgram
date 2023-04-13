@@ -17,7 +17,7 @@ public class Generator {
         String currentDate = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss", new Locale("en")));
 
         File src = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(src, new File("test-output\\failure_screenshots\\TestFail_"+currentDate+"_"+failedMethodName+".png"));
+        FileUtils.copyFile(src, new File("test-output"+File.separator+"failure_screenshots"+File.separator+"TestFail_"+currentDate+"_"+failedMethodName+".png"));
 
     }
 

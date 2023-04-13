@@ -55,6 +55,13 @@
       <artifactId>webdriverextensions</artifactId>
       <version>2.7.0</version>
     </dependency>
+
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>5.3.2</version>
+    </dependency>
+
   </dependencies>
 
   <build>

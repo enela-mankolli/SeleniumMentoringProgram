@@ -1,4 +1,5 @@
 package training.selenium.utils;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -16,16 +17,13 @@ public class DriverFactory {
 
     private static WebDriver initDriver(String browserType) {
         if (browserType.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+           WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
         } else if (browserType.equals("firefox")) {
-            System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/geckodriver.exe");
-            FirefoxOptions options = new FirefoxOptions();
-            options.setBinary("C:\\Program Files\\Mozilla Firefox\\Firefox.exe");
-            driver = new FirefoxDriver(options);
-
+         WebDriverManager.firefoxdriver().setup();
+            driver = new FirefoxDriver();
         } else if (browserType.equals("edge")) {
-            System.setProperty("webdriver.edge.driver", "src/test/resources/drivers/msedgedriver.exe");
+           WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
 
         }
