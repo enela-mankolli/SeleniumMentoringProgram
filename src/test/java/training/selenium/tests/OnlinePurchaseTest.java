@@ -1,4 +1,5 @@
 package training.selenium.tests;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -37,7 +38,7 @@ public class OnlinePurchaseTest {
     public void buy2Products() {
         //1- login
         loginPage.login(GlobalVariables.standardUser, GlobalVariables.password);
-      //  productPage.validateURL("https://www.saucedemo.com/inventory.html");
+        //  productPage.validateURL("https://www.saucedemo.com/inventory.html");
         WebDriverWait explicitWait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
         explicitWait.until(ExpectedConditions.urlToBe("https://www.saucedemo.com/inventory.html"));
         String actualUrl = DriverFactory.getDriver().getCurrentUrl();
@@ -62,14 +63,15 @@ public class OnlinePurchaseTest {
         checkoutStepOnePage.clickContinueButton();
         checkoutStepTwoPage.validateURL("https://www.saucedemo.com/checkout-step-two.html");
 
+
         //6- CHECKOUT: OVERVIEW
-       String totalPrice = checkoutStepTwoPage.getTotalPrice();
+        String totalPrice = checkoutStepTwoPage.getTotalPrice();
         Assert.assertEquals(totalPrice, "Total: $43.18");
         checkoutStepTwoPage.clickFinishButton();
 
         //7- CHECKOUT: COMPLETE!
         checkoutCompletePage.validateURL("https://www.saucedemo.com/checkout-complete.html");
-        Assert.assertEquals(checkoutCompletePage.checkoutCompleteTitleElement.getText(),"THANK YOU FOR YOUR ORDER" );
+        Assert.assertEquals(checkoutCompletePage.checkoutCompleteTitleElement.getText(), "THANK YOU FOR YOUR ORDER");
 
     }
 
