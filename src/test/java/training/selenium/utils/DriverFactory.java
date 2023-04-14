@@ -1,10 +1,13 @@
 package training.selenium.utils;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+
 import java.time.Duration;
 
 public class DriverFactory {
@@ -17,13 +20,15 @@ public class DriverFactory {
 
     private static WebDriver initDriver(String browserType) {
         if (browserType.equals("chrome")) {
-           WebDriverManager.chromedriver().setup();
+            ChromeOptions ops = new ChromeOptions();
+            ops.addArguments("--remote-allow-origins=*");
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
         } else if (browserType.equals("firefox")) {
-         WebDriverManager.firefoxdriver().setup();
+            WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         } else if (browserType.equals("edge")) {
-           WebDriverManager.edgedriver().setup();
+            WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
 
         }

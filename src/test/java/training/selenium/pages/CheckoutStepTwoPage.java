@@ -2,6 +2,7 @@ package training.selenium.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import training.selenium.utils.WebElementUtils;
 
 public class CheckoutStepTwoPage extends BasePage{
 
@@ -13,13 +14,11 @@ public class CheckoutStepTwoPage extends BasePage{
 
     public void clickFinishButton()
     {
-        finishButtonWebElement.click();
+        WebElementUtils.clickWebElement(finishButtonWebElement);
     }
 
-    public void validateTotalPrice(double price) {
-        String expectedText = "Total: $43.18";
-        String actualPrice = totalPriceWebElement.getText().replace("\\s", "");
-        Assert.assertEquals(actualPrice, "Total: $" +price);
+    public String getTotalPrice() {
+        return totalPriceWebElement.getText().replace("\\s", "");
     }
 
 }

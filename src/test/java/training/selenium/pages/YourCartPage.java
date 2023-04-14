@@ -3,6 +3,7 @@ package training.selenium.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import training.selenium.utils.WebElementUtils;
 
 public class YourCartPage extends BasePage{
 
@@ -26,6 +27,6 @@ public class YourCartPage extends BasePage{
     }
 
     public void clickCheckoutButton() {
-        checkoutButton.click();
+        WebElementUtils.clickWebElement(checkoutButton);
     }
 }

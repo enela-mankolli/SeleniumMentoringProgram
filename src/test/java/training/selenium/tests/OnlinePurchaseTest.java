@@ -1,8 +1,14 @@
 package training.selenium.tests;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import training.selenium.pages.*;
 import training.selenium.utils.DriverFactory;
+import training.selenium.utils.GlobalVariables;
+
+import java.time.Duration;
 
 public class OnlinePurchaseTest {
 
@@ -24,14 +30,18 @@ public class OnlinePurchaseTest {
 
     @BeforeMethod
     public void navigateToLoginPage() {
-        DriverFactory.getDriver().get("https://www.saucedemo.com/");
+        DriverFactory.getDriver().get(GlobalVariables.url);
     }
 
     @Test
     public void buy2Products() {
         //1- login
-        loginPage.login("standard_user", "secret_sauce");
-        productPage.validateURL("https://www.saucedemo.com/inventory.html");
+        loginPage.login(GlobalVariables.standardUser, GlobalVariables.password);
+      //  productPage.validateURL("https://www.saucedemo.com/inventory.html");
+        WebDriverWait explicitWait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        explicitWait.until(ExpectedConditions.urlToBe("https://www.saucedemo.com/inventory.html"));
+        String actualUrl = DriverFactory.getDriver().getCurrentUrl();
+        Assert.assertEquals(actualUrl, "https://www.saucedemo.com/inventory.html");
 
         //2- add products to cart
         productPage.addToCardProducts();
@@ -53,12 +63,13 @@ public class OnlinePurchaseTest {
         checkoutStepTwoPage.validateURL("https://www.saucedemo.com/checkout-step-two.html");
 
         //6- CHECKOUT: OVERVIEW
-        checkoutStepTwoPage.validateTotalPrice(43.18);
+       String totalPrice = checkoutStepTwoPage.getTotalPrice();
+        Assert.assertEquals(totalPrice, "Total: $43.18");
         checkoutStepTwoPage.clickFinishButton();
 
         //7- CHECKOUT: COMPLETE!
         checkoutCompletePage.validateURL("https://www.saucedemo.com/checkout-complete.html");
-        checkoutCompletePage.validateMessage("THANK YOU FOR YOUR ORDER");
+        Assert.assertEquals(checkoutCompletePage.checkoutCompleteTitleElement.getText(),"THANK YOU FOR YOUR ORDER" );
 
     }
 

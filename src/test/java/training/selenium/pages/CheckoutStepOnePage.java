@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import training.selenium.utils.DriverFactory;
+import training.selenium.utils.WebElementUtils;
 
 public class CheckoutStepOnePage extends BasePage {
 
@@ -21,14 +22,11 @@ public class CheckoutStepOnePage extends BasePage {
     WebElement continueButtonWebElement;
 
     public void completeForm(String firstName, String lastName, String postalCode) {
-        firstNameWebElement.clear();
-        firstNameWebElement.sendKeys(firstName);
-        lastNameWebElement.clear();
-        lastNameWebElement.sendKeys(lastName);
-        postalCodeWebElement.sendKeys(postalCode);
-
+        WebElementUtils.typeInElement(firstNameWebElement,firstName);
+        WebElementUtils.typeInElement(lastNameWebElement,lastName);
+        WebElementUtils.typeInElement(postalCodeWebElement,postalCode);
     }
     public void clickContinueButton() {
-        continueButtonWebElement.click();
+        WebElementUtils.clickWebElement(continueButtonWebElement);
     }
 }

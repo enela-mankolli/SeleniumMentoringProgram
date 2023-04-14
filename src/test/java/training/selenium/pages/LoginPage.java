@@ -6,11 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import training.selenium.utils.DriverFactory;
+import training.selenium.utils.WebElementUtils;
+
 import java.time.Duration;
 
 public class LoginPage extends BasePage {
-
-    String expectedUrl = "https://www.saucedemo.com";
 
     public LoginPage() {
     }
@@ -25,14 +25,12 @@ public class LoginPage extends BasePage {
     WebElement loginButtonWebElement;
 
     public void enterCredentials(String username, String password) {
-        usernameWebElement.clear();
-        usernameWebElement.sendKeys(username);
-        passwordWebElement.clear();
-        passwordWebElement.sendKeys(password);
+        WebElementUtils.typeInElement(usernameWebElement,username);
+        WebElementUtils.typeInElement(passwordWebElement,password);
     }
 
     public void clickLoginButton() {
-        loginButtonWebElement.click();
+        WebElementUtils.clickWebElement(loginButtonWebElement);
     }
 
     public void login(String username, String password) {

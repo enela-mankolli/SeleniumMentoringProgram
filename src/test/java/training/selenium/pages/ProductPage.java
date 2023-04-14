@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import training.selenium.utils.DriverFactory;
+import training.selenium.utils.WebElementUtils;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -24,13 +25,13 @@ public class ProductPage extends BasePage {
     WebElement addToCartButtonProduct2;
 
     public void addToCardProducts() {
-        addToCartButtonProduct1.click();
-        addToCartButtonProduct2.click();
+        WebElementUtils.clickWebElement(addToCartButtonProduct1);
+        WebElementUtils.clickWebElement(addToCartButtonProduct2);
     }
 
     public void logout() {
-        DriverFactory.getDriver().findElement(By.id("react-burger-menu-btn")).click();
-        DriverFactory.getDriver().findElement(By.id("logout_sidebar_link")).click();
+        WebElementUtils.clickWebElement(DriverFactory.getDriver().findElement(By.id("react-burger-menu-btn")));
+        WebElementUtils.clickWebElement(DriverFactory.getDriver().findElement(By.id("logout_sidebar_link")));
     }
 
     @FindBy(xpath = "//span[@class='shopping_cart_badge']")
@@ -42,12 +43,12 @@ public class ProductPage extends BasePage {
     }
 
     public void clickShoppingCardBadge() {
-        shoppingCardBadge.click();
+        WebElementUtils.clickWebElement( shoppingCardBadge);
     }
 
     public List<String> getProductsName() {
         List<String> list = new ArrayList<>();
-        By by = By.xpath("//div[@class='inventory_list']/div/div[@class='inventory_item_description']/div[@class='inventory_item_label']/a/div");
+        By by = By.xpath("//div[@class='inventory_item_label']/a/div");
         List<WebElement> elements = DriverFactory.getDriver().findElements(by);
 
         for (WebElement el : elements) {
